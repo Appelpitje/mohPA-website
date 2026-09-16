@@ -15,7 +15,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: 'Why does my antivirus scanner flag the client patch?',
     answer:
-      'The client patch uses a lightweight runtime library hook to intercept DNS lookups for retired EA hostnames (such as fesl.ea.com and legacy matchmaking endpoints) within the game\'s process memory and route them to mohpa.net. Because this runtime hooking technique is also common in game modding and trainers, generic heuristic scanners occasionally flag it as unrecognized. The patch modifies zero system files and is 100% transparent.',
+      'The client patch is an open-source 17 KB script (Patch-MOHPA.bat / PowerShell) that creates a safe backup (mohpa.exe.bak) and modifies specific binary offsets in mohpa.exe (such as bypassing obsolete 2004 SSL 2.0 verification and remapping blocked IRC ports). Because heuristic scanners monitor scripts modifying executable files, some tools trigger a generic false positive. The entire patch is 100% human-readable script code with no compiled binaries or malware.',
   },
   {
     question: 'Can I play on modern Windows 10, Windows 11, or Linux?',
@@ -25,7 +25,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: 'How do I host a dedicated server for my clan?',
     answer:
-      'Both Windows and Linux headless dedicated server packages are available. Dedicated server administrators can register their server token on the mohPA Portal to announce their server directly to the public in-game server browser.',
+      'Both Windows and Linux dedicated servers are supported. The patcher also patches mohpa_server.exe automatically if present in your installation folder. Dedicated server administrators can register their server token on the mohPA Portal to announce their server directly to the public in-game server browser.',
   },
   {
     question: 'Is mohPA free to play?',

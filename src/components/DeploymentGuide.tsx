@@ -61,13 +61,13 @@ export const DeploymentGuide: React.FC<DeploymentGuideProps> = ({ portalUrl = 'h
                 <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-olive-100 text-olive-800 border border-olive-200">
                   STEP 2
                 </span>
-                <span className="text-xs font-mono text-ink-faint">CLIENT HOOK</span>
+                <span className="text-xs font-mono text-ink-faint">PATCH &amp; HOSTS</span>
               </div>
               <h3 className="text-xl font-bold text-ink">
-                Extract the Patch Files
+                Run Patch-MOHPA.bat
               </h3>
               <p className="text-sm text-ink-muted leading-relaxed">
-                Download the <strong className="text-ink">mohPA Client Patch</strong> and extract the contents directly into your game's root installation directory alongside <code className="text-xs bg-sand-200 px-1 py-0.5 rounded font-mono">mohpa.exe</code>.
+                Extract the 17 KB patch archive into your game directory alongside <code className="text-xs bg-sand-200 px-1 py-0.5 rounded font-mono">mohpa.exe</code>. Double-click <strong className="text-ink">Patch-MOHPA.bat</strong> to patch the client, then merge <code className="text-xs bg-sand-200 px-1 py-0.5 rounded font-mono">centralspy-hosts.txt</code> into your hosts file.
               </p>
 
               <div className="bg-sand-50 p-2.5 rounded border border-sand-200 text-xs font-mono text-ink-muted flex items-center justify-between gap-2">
@@ -86,7 +86,7 @@ export const DeploymentGuide: React.FC<DeploymentGuideProps> = ({ portalUrl = 'h
             </div>
 
             <div className="pt-6 mt-6 border-t border-sand-200 text-xs text-olive-700 font-mono font-medium">
-              Zero system hosts-file edits required
+              Auto-backup (mohpa.exe.bak) · 1-click restore
             </div>
           </div>
 
@@ -134,10 +134,10 @@ export const DeploymentGuide: React.FC<DeploymentGuideProps> = ({ portalUrl = 'h
               </span>
             </div>
             <p className="text-sm text-ink-muted max-w-xl">
-              Includes the runtime Winsock redirection hook, master server certificate bundle, and direct connect shortcuts. Compatible with Windows 10, 11, and Linux via Wine/Proton.
+              Includes the automated patcher (<code className="text-xs font-mono bg-sand-200 px-1 py-0.5 rounded">Patch-MOHPA.bat</code>), instant rollback (<code className="text-xs font-mono bg-sand-200 px-1 py-0.5 rounded">Restore-Original.bat</code>), and redirection hosts entries. Compatible with Windows 10, 11, and Linux via Wine/Proton. No Python installation required.
             </p>
             <p className="text-xs font-mono text-ink-faint">
-              Package: mohPA-Client-Patch.zip (5.2 MB) · SHA-256 Verified
+              Package: mohPA-Client-Patch.zip (17 KB) · SHA-256 Verified
             </p>
           </div>
 

@@ -62,14 +62,14 @@ export const FeaturesGrid: React.FC = () => {
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-ink">
-                Zero System Intrusion
+                Safe, Reversible Patching
               </h3>
               <p className="text-sm text-ink-muted leading-relaxed">
-                Our client patch operates strictly in the game's user memory space via a lightweight Winsock hook. It leaves your Windows system files, network adapters, and hosts file completely untouched. To uninstall, simply delete the file.
+                The lightweight 17 KB patcher automatically creates a backup (<code className="text-xs bg-sand-200 px-1 py-0.5 rounded font-mono">mohpa.exe.bak</code>) before applying compatibility fixes (SSL 2.0 bypass and ISP port remapping). Revert anytime with a single click on <code className="text-xs bg-sand-200 px-1 py-0.5 rounded font-mono">Restore-Original.bat</code>.
               </p>
             </div>
             <div className="pt-6 mt-6 border-t border-sand-200 font-mono text-xs text-olive-700 font-medium">
-              Integrity: Clean removal with zero residual registry artifacts
+              Integrity: 100% reversible · Zero binary bloat
             </div>
           </div>
 

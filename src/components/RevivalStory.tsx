@@ -27,7 +27,7 @@ export const RevivalStory: React.FC = () => {
               Earlier community attempts relied on virtual LANs like Hamachi, manual IP entry through developer consoles, or destructive edits to the Windows <code className="text-xs bg-sand-200 px-1 py-0.5 rounded text-ink font-mono">hosts</code> file. These methods were fragile, triggered administrative permission errors, and failed to restore the in-game server browser or persistent soldier statistics.
             </p>
             <div className="pt-2 border-t border-sand-200 text-xs font-mono text-ink-faint">
-              STATUS: Retired legacy workarounds replaced by automated runtime hooks.
+              STATUS: Retired legacy workarounds replaced by automated 17 KB patcher.
             </div>
           </div>
 
@@ -36,10 +36,10 @@ export const RevivalStory: React.FC = () => {
               How the mohPA architecture works
             </h3>
             <p className="text-sm text-ink-muted leading-relaxed">
-              mohPA implements an independent FESL (Frontend Server Library) authentication daemon and multiplayer matchmaking system. When your client initializes multiplayer, our lightweight hook dynamically resolves EA hostnames in process memory to <code className="text-xs bg-sand-200 px-1 py-0.5 rounded text-ink font-mono">178.105.150.25</code>. The game receives authentic packets, logs your soldier in, and loads the active server browser seamlessly.
+              mohPA implements an independent FESL authentication daemon and matchmaking master server. By patching obsolete 2004 SSL 2.0 checks and remapping filtered peerchat ports directly in <code className="text-xs bg-sand-200 px-1 py-0.5 rounded text-ink font-mono">mohpa.exe</code>, the client communicates cleanly with <code className="text-xs bg-sand-200 px-1 py-0.5 rounded text-ink font-mono">178.105.150.25</code>. The game receives authentic packets, logs your soldier in, and loads the active server browser seamlessly.
             </p>
             <div className="pt-2 border-t border-sand-200 text-xs font-mono text-olive-700 font-medium">
-              RESULT: Unmodified 2004 game client communicates natively.
+              RESULT: Authentic 2004 multiplayer protocol restored.
             </div>
           </div>
 
@@ -53,7 +53,7 @@ export const RevivalStory: React.FC = () => {
                 Network Flow &amp; Packet Routing Pipeline
               </h3>
               <p className="text-xs text-ink-faint font-mono mt-0.5">
-                Full protocol emulation without modifying game binaries on disk
+                Full protocol restoration with instant 1-click rollback
               </p>
             </div>
             <span className="font-mono text-xs px-2 py-0.5 rounded bg-sand-200 text-ink border border-sand-300 self-start sm:self-auto">
@@ -73,7 +73,7 @@ export const RevivalStory: React.FC = () => {
                 The original 2004 retail executable launches and initiates multiplayer calls to legacy EA server endpoints.
               </p>
               <div className="font-mono text-[11px] text-ink-faint bg-sand-50 p-2 rounded border border-sand-200">
-                Hooks: winsock gethostbyname
+                Patched: SSL bypass &amp; port 18270
               </div>
             </div>
 

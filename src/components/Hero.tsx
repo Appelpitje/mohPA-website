@@ -76,7 +76,7 @@ export const Hero: React.FC<HeroProps> = ({ portalUrl = 'https://portal.mohpa.ne
                 <Download className="w-5 h-5 text-sand-100" />
                 <span>Download Client Patch</span>
                 <span className="text-xs bg-stamp-700/70 text-sand-200 px-2 py-0.5 rounded font-mono font-normal">
-                  v1.2 · 5.2 MB
+                  v1.2 · 17 KB
                 </span>
               </a>
 
@@ -95,7 +95,7 @@ export const Hero: React.FC<HeroProps> = ({ portalUrl = 'https://portal.mohpa.ne
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-medium text-ink-muted">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-olive-600 shrink-0" />
-                <span>No hosts-file modification</span>
+                <span>Safe &amp; reversible patch</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-olive-600 shrink-0" />
