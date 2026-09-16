@@ -67,7 +67,7 @@ export const DeploymentGuide: React.FC<DeploymentGuideProps> = ({ portalUrl = 'h
                 Run Patch-MOHPA.bat
               </h3>
               <p className="text-sm text-ink-muted leading-relaxed">
-                Extract the 17 KB patch archive into your game directory alongside <code className="text-xs bg-sand-200 px-1 py-0.5 rounded font-mono">mohpa.exe</code>. Double-click <strong className="text-ink">Patch-MOHPA.bat</strong> to patch the client, then merge <code className="text-xs bg-sand-200 px-1 py-0.5 rounded font-mono">centralspy-hosts.txt</code> into your hosts file.
+                Extract the 17 KB patch archive into your game directory alongside <code className="text-xs bg-sand-200 px-1 py-0.5 rounded font-mono">mohpa.exe</code>. Double-click <strong className="text-ink">Patch-MOHPA.bat</strong> to patch the client, then merge <code className="text-xs bg-sand-200 px-1 py-0.5 rounded font-mono">mohpa-hosts.txt</code> into your hosts file.
               </p>
 
               <div className="bg-sand-50 p-2.5 rounded border border-sand-200 text-xs font-mono text-ink-muted flex items-center justify-between gap-2">
