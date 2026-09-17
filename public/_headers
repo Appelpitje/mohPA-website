@@ -1,0 +1,3 @@
+# Only Vite-generated, content-hashed files live here.
+/_assets/*
+  Cache-Control: public, max-age=31536000, immutable

@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
-import { Download, FolderCheck, KeyRound, Check, Copy, ExternalLink, HelpCircle } from 'lucide-react';
+import React from 'react';
+import { Download, ExternalLink } from 'lucide-react';
 
 interface DeploymentGuideProps {
   portalUrl?: string;
 }
 
 export const DeploymentGuide: React.FC<DeploymentGuideProps> = ({ portalUrl = 'https://portal.mohpa.net' }) => {
-  const [copiedPath, setCopiedPath] = useState(false);
-  const defaultPath = 'C:\\Program Files (x86)\\EA GAMES\\Medal of Honor Pacific Assault';
-
-  const handleCopyPath = () => {
-    navigator.clipboard.writeText(defaultPath);
-    setCopiedPath(true);
-    setTimeout(() => setCopiedPath(false), 2000);
-  };
 
   return (
     <section id="deployment" className="py-20 lg:py-28 bg-sand-50 border-b border-sand-200">
@@ -22,10 +14,10 @@ export const DeploymentGuide: React.FC<DeploymentGuideProps> = ({ portalUrl = 'h
         {/* Section Heading */}
         <div className="max-w-3xl mb-16 space-y-4">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
-            Three steps from desktop to the frontlines.
+            How to set up Pacific Assault multiplayer.
           </h2>
           <p className="text-lg text-ink-muted leading-relaxed">
-            Deployment takes under three minutes. No complicated command lines, registry modifications, or external networking tunnels are needed.
+            Prepare your game and account, then follow the maintained public setup guide. Installation and network configuration may vary; check the current instructions before making changes.
           </p>
         </div>
 
@@ -45,12 +37,12 @@ export const DeploymentGuide: React.FC<DeploymentGuideProps> = ({ portalUrl = 'h
                 Prepare MOHPA v1.2
               </h3>
               <p className="text-sm text-ink-muted leading-relaxed">
-                Ensure you have a clean retail or digital installation of Medal of Honor: Pacific Assault updated to official patch <strong className="text-ink">v1.2</strong>. (Both original CD/DVD releases and EA/Origin or GOG releases are supported).
+                You need a stock Medal of Honor: Pacific Assault installation updated to game version <strong className="text-ink">v1.2</strong>. The community patch is a separate download and does not include the game or the official game update. Keep a backup of your original installation.
               </p>
             </div>
             
             <div className="pt-6 mt-6 border-t border-sand-200 text-xs text-ink-faint font-mono">
-              Executable check: mohpa.exe (v1.2.0.0)
+              Game requirement: v1.2 · Community patch: separate ZIP
             </div>
           </div>
 
@@ -61,32 +53,28 @@ export const DeploymentGuide: React.FC<DeploymentGuideProps> = ({ portalUrl = 'h
                 <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-olive-100 text-olive-800 border border-olive-200">
                   STEP 2
                 </span>
-                <span className="text-xs font-mono text-ink-faint">PATCH &amp; HOSTS</span>
+                <span className="text-xs font-mono text-ink-faint">SETUP GUIDE</span>
               </div>
               <h3 className="text-xl font-bold text-ink">
-                Run Patch-MOHPA.bat
+                Download and follow the guide
               </h3>
               <p className="text-sm text-ink-muted leading-relaxed">
-                Extract the 17 KB patch archive into your game directory alongside <code className="text-xs bg-sand-200 px-1 py-0.5 rounded font-mono">mohpa.exe</code>. Double-click <strong className="text-ink">Patch-MOHPA.bat</strong> to patch the client, then merge <code className="text-xs bg-sand-200 px-1 py-0.5 rounded font-mono">mohpa-hosts.txt</code> into your hosts file.
+                Download the complete community client patch archive. Use the current public guide for installation and any required network configuration. Do not assume extracting the archive completes setup, and check the guide if the download differs from older instructions.
               </p>
 
-              <div className="bg-sand-50 p-2.5 rounded border border-sand-200 text-xs font-mono text-ink-muted flex items-center justify-between gap-2">
-                <span className="truncate" title={defaultPath}>
-                  EA GAMES\Medal of Honor...
-                </span>
-                <button
-                  onClick={handleCopyPath}
-                  className="p-1 rounded hover:bg-sand-200 text-ink transition-colors shrink-0"
-                  title="Copy standard installation path"
-                  aria-label="Copy standard installation path"
-                >
-                  {copiedPath ? <Check className="w-3.5 h-3.5 text-olive-700" /> : <Copy className="w-3.5 h-3.5" />}
-                </button>
-              </div>
+              <a
+                href={`${portalUrl}/setup`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-olive-800 hover:text-olive-900 underline underline-offset-2"
+              >
+                <span>Read the current client setup guide</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
             </div>
 
             <div className="pt-6 mt-6 border-t border-sand-200 text-xs text-olive-700 font-mono font-medium">
-              Auto-backup (mohpa.exe.bak) · 1-click restore
+              Check current instructions before changing game or system files.
             </div>
           </div>
 
@@ -100,10 +88,10 @@ export const DeploymentGuide: React.FC<DeploymentGuideProps> = ({ portalUrl = 'h
                 <span className="text-xs font-mono text-ink-faint">DEPLOYMENT</span>
               </div>
               <h3 className="text-xl font-bold text-ink">
-                Enlist Soldier &amp; Deploy
+                Create an account and sign in
               </h3>
               <p className="text-sm text-ink-muted leading-relaxed">
-                Register your free account on the <strong className="text-ink">mohPA Portal</strong> and create your custom soldier persona. Launch the game, head to Multiplayer &gt; Internet, and your soldier connects automatically.
+                Register a mohPA account on the player portal. Once setup is complete, fully quit and restart the game, open Multiplayer, and log in with that account. Then open the internet server list to find a community server.
               </p>
             </div>
 
@@ -127,17 +115,17 @@ export const DeploymentGuide: React.FC<DeploymentGuideProps> = ({ portalUrl = 'h
           <div className="space-y-2">
             <div className="flex items-center gap-2">
               <h3 className="text-xl font-bold text-ink">
-                Official mohPA Client Patch Archive
+                mohPA Community Client Patch
               </h3>
               <span className="font-mono text-xs px-2 py-0.5 rounded bg-olive-100 text-olive-800 border border-olive-200">
-                LATEST BUILD
+                ZIP DOWNLOAD
               </span>
             </div>
             <p className="text-sm text-ink-muted max-w-xl">
-              Includes the automated patcher (<code className="text-xs font-mono bg-sand-200 px-1 py-0.5 rounded">Patch-MOHPA.bat</code>), instant rollback (<code className="text-xs font-mono bg-sand-200 px-1 py-0.5 rounded">Restore-Original.bat</code>), and redirection hosts entries. Compatible with Windows 10, 11, and Linux via Wine/Proton. No Python installation required.
+              For an existing Medal of Honor: Pacific Assault v1.2 installation. Follow the current portal setup guide before installing; this archive is not the game or the official v1.2 update.
             </p>
             <p className="text-xs font-mono text-ink-faint">
-              Package: mohPA-Client-Patch.zip (17 KB) · SHA-256 Verified
+              Package: mohPA-Client-Patch.zip · No community patch version published here
             </p>
           </div>
 
@@ -147,7 +135,7 @@ export const DeploymentGuide: React.FC<DeploymentGuideProps> = ({ portalUrl = 'h
             className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-stamp-500 hover:bg-stamp-600 active:bg-stamp-700 text-sand-50 font-semibold text-sm transition-all shadow-stamp-action border border-stamp-700 shrink-0"
           >
             <Download className="w-4 h-4 text-sand-100" />
-            <span>Download Patch Now</span>
+            <span>Download Client Patch</span>
           </a>
         </div>
 

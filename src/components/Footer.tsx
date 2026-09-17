@@ -1,5 +1,11 @@
 import React from 'react';
-import { ExternalLink, ShieldAlert, Heart } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
+
+const GITHUB_REPOS = [
+  { href: 'https://github.com/Appelpitje/mohPA-frontend', label: 'Portal source' },
+  { href: 'https://github.com/Appelpitje/mohPA-backend', label: 'Master server source' },
+  { href: 'https://github.com/Appelpitje/mohPA-website', label: 'Website source' },
+] as const;
 
 interface FooterProps {
   portalUrl?: string;
@@ -33,15 +39,15 @@ export const Footer: React.FC<FooterProps> = ({ portalUrl = 'https://portal.mohp
             </p>
 
             <div className="font-mono text-[11px] text-ink-faint">
-              Master Server: mohpa.net (178.105.150.25) · FESL 18020 / Matchmaking 18275
+              Maintained by <a href="https://github.com/Appelpitje" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-ink">Appelpitje</a>.
             </div>
           </div>
 
           {/* Navigation Links */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="font-semibold text-ink uppercase tracking-wider font-mono text-[11px]">
-              Surface Navigation
-            </h4>
+            <h2 className="font-semibold text-ink uppercase tracking-wider font-mono text-[11px]">
+              Explore mohPA
+            </h2>
             <ul className="space-y-2 font-medium">
               <li>
                 <a href="#story" className="hover:text-ink transition-colors">
@@ -55,12 +61,12 @@ export const Footer: React.FC<FooterProps> = ({ portalUrl = 'https://portal.mohp
               </li>
               <li>
                 <a href="#servers" className="hover:text-ink transition-colors">
-                  Active Server Roster
+                  Server List
                 </a>
               </li>
               <li>
                 <a href="#features" className="hover:text-ink transition-colors">
-                  Protocol &amp; Netcode
+                  Community Features
                 </a>
               </li>
               <li>
@@ -73,9 +79,9 @@ export const Footer: React.FC<FooterProps> = ({ portalUrl = 'https://portal.mohp
 
           {/* External Operations */}
           <div className="md:col-span-4 space-y-3">
-            <h4 className="font-semibold text-ink uppercase tracking-wider font-mono text-[11px]">
-              Community Services
-            </h4>
+            <h2 className="font-semibold text-ink uppercase tracking-wider font-mono text-[11px]">
+              Community &amp; Source Code
+            </h2>
             <ul className="space-y-2 font-medium">
               <li>
                 <a
@@ -94,7 +100,7 @@ export const Footer: React.FC<FooterProps> = ({ portalUrl = 'https://portal.mohp
                   download="mohPA-Client-Patch.zip"
                   className="hover:text-ink transition-colors"
                 >
-                  Client Patch Download (v1.2)
+                  Client Patch Download
                 </a>
               </li>
               <li>
@@ -107,6 +113,31 @@ export const Footer: React.FC<FooterProps> = ({ portalUrl = 'https://portal.mohp
                   Dedicated Server Hosting Guide
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://github.com/Appelpitje/mohPA-website/issues"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 hover:text-ink transition-colors"
+                >
+                  Website Support &amp; Issue Reports
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              {GITHUB_REPOS.map((repo) => (
+                <li key={repo.href}>
+                  <a
+                    href={repo.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 hover:text-ink transition-colors"
+                  >
+                    <Github className="w-3 h-3" />
+                    <span>{repo.label}</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -115,13 +146,8 @@ export const Footer: React.FC<FooterProps> = ({ portalUrl = 'https://portal.mohp
         {/* Legal Disclaimer */}
         <div className="border-t border-sand-200 pt-8 space-y-3 text-[11px] text-ink-faint leading-relaxed">
           <p>
-            Medal of Honor and Medal of Honor: Pacific Assault are registered trademarks of Electronic Arts Inc. 
-            mohPA is an independent, non-commercial software preservation project created by fans and is not affiliated with, endorsed by, or sponsored by Electronic Arts Inc. All original game assets, trademarks, and registered trademarks are property of their respective owners.
+            Medal of Honor: Pacific Assault is an Electronic Arts game. mohPA is a community project, not an official Electronic Arts service.
           </p>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 text-ink-faint font-mono">
-            <span>© 2004–2026 mohPA Preservation Initiative. Released under community fair-use preservation.</span>
-            <span>Client Build v1.2.0.0 Compatible</span>
-          </div>
         </div>
 
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, ExternalLink, Shield, Radio, Terminal } from 'lucide-react';
+import { Menu, X, ExternalLink, Github } from 'lucide-react';
 
 interface NavbarProps {
   portalUrl?: string;
@@ -12,7 +12,7 @@ export const Navbar: React.FC<NavbarProps> = ({ portalUrl = 'https://portal.mohp
     <header className="sticky top-0 z-50 border-b border-sand-200 bg-sand-50/95 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Lockup */}
-        <a href="#" className="flex items-center gap-3 group focus:outline-none">
+        <a href="#" className="flex items-center gap-3 group">
           <div className="w-9 h-9 rounded-md bg-olive-900 border border-olive-700 flex items-center justify-center p-1.5 shadow-sm group-hover:border-olive-500 transition-colors">
             <svg viewBox="0 0 32 32" fill="none" className="w-full h-full text-olive-200">
               <circle cx="16" cy="16" r="13" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 2" />
@@ -37,7 +37,7 @@ export const Navbar: React.FC<NavbarProps> = ({ portalUrl = 'https://portal.mohp
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-ink-muted">
+        <nav aria-label="Main navigation" className="hidden md:flex items-center gap-7 text-sm font-medium text-ink-muted">
           <a href="#story" className="hover:text-ink transition-colors">
             The Revival
           </a>
@@ -55,12 +55,21 @@ export const Navbar: React.FC<NavbarProps> = ({ portalUrl = 'https://portal.mohp
           </a>
         </nav>
 
-        {/* Live Status & CTA */}
+        {/* Service Label & CTA */}
         <div className="hidden sm:flex items-center gap-3">
           <div className="hidden lg:flex items-center gap-2 px-2.5 py-1 rounded-full bg-olive-50 border border-olive-200 text-xs font-mono text-olive-800">
-            <span className="w-2 h-2 rounded-full bg-olive-500 animate-pulse"></span>
-            <span>Master Server Online</span>
+            <span>Community Master Server</span>
           </div>
+
+          <a
+            href="https://github.com/Appelpitje/mohPA-website"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-lg text-ink-muted hover:text-ink hover:bg-sand-200 transition-colors"
+            aria-label="Website source on GitHub"
+          >
+            <Github className="w-4 h-4" />
+          </a>
 
           <a
             href={portalUrl}
@@ -85,9 +94,12 @@ export const Navbar: React.FC<NavbarProps> = ({ portalUrl = 'https://portal.mohp
             <ExternalLink className="w-3 h-3 text-olive-300" />
           </a>
           <button
+            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 rounded-lg text-ink-muted hover:text-ink hover:bg-sand-200 transition-colors"
-            aria-label="Toggle navigation"
+            aria-label={mobileMenuOpen ? 'Close navigation' : 'Open navigation'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -95,11 +107,9 @@ export const Navbar: React.FC<NavbarProps> = ({ portalUrl = 'https://portal.mohp
       </div>
 
       {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t border-sand-200 bg-sand-50 px-4 py-4 space-y-3">
+        <nav id="mobile-navigation" aria-label="Mobile navigation" hidden={!mobileMenuOpen} className="md:hidden border-t border-sand-200 bg-sand-50 px-4 py-4 space-y-3">
           <div className="flex items-center gap-2 px-2 py-1 text-xs font-mono text-olive-800 bg-olive-50 rounded border border-olive-200">
-            <span className="w-2 h-2 rounded-full bg-olive-500 animate-pulse"></span>
-            <span>Master Server: mohpa.net (Online)</span>
+            <span>Community Master Server: mohpa.net</span>
           </div>
           <div className="flex flex-col space-y-2 pt-2 text-sm font-medium">
             <a
@@ -137,9 +147,17 @@ export const Navbar: React.FC<NavbarProps> = ({ portalUrl = 'https://portal.mohp
             >
               FAQ
             </a>
+            <a
+              href="https://github.com/Appelpitje/mohPA-website"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2 py-1.5 rounded hover:bg-sand-200 text-ink inline-flex items-center gap-2"
+            >
+              <Github className="w-4 h-4" />
+              <span>GitHub</span>
+            </a>
           </div>
-        </div>
-      )}
+        </nav>
     </header>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Gamepad2, UserCheck, ShieldCheck, Activity, Terminal, Radio } from 'lucide-react';
+import { Gamepad2, Users, FolderArchive, Radio } from 'lucide-react';
 
 export const FeaturesGrid: React.FC = () => {
   return (
@@ -9,10 +9,10 @@ export const FeaturesGrid: React.FC = () => {
         {/* Section Heading */}
         <div className="max-w-3xl mb-16 space-y-4">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
-            Authentic preservation. Modern stability.
+            Multiplayer features and player resources.
           </h2>
           <p className="text-lg text-ink-muted leading-relaxed">
-            mohPA treats Medal of Honor: Pacific Assault as historic software worth keeping playable. We reverse-engineered the networking stack from packet captures to guarantee 100% native behavior.
+            Use the game’s Multiplayer screen to sign in and find community servers. The client patch and player portal support setup, accounts, and getting into a game.
           </p>
         </div>
 
@@ -26,14 +26,14 @@ export const FeaturesGrid: React.FC = () => {
                 <Gamepad2 className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-ink">
-                Original In-Engine Matchmaking
+                In-Game Server Browser
               </h3>
               <p className="text-sm text-ink-muted leading-relaxed max-w-xl">
-                You do not need to alt-tab to a third-party desktop launcher to find a match. Once patched, clicking "Multiplayer" inside Medal of Honor: Pacific Assault brings up the authentic 2004 server browser, ping meters, player rosters, and game settings natively.
+                After completing setup and signing in, open the internet server list in Medal of Honor: Pacific Assault to browse mohPA servers. Which servers and players you find depends on current community activity.
               </p>
             </div>
             <div className="pt-6 mt-6 border-t border-sand-200 font-mono text-xs text-ink-faint">
-              Architecture: EA FESL &amp; Matchmaking Protocol v1.2 emulation
+              Find games from the Multiplayer menu.
             </div>
           </div>
 
@@ -41,17 +41,17 @@ export const FeaturesGrid: React.FC = () => {
           <div className="md:col-span-5 bg-sand-100 border border-sand-200 rounded-xl p-8 shadow-tactical flex flex-col justify-between">
             <div className="space-y-3">
               <div className="w-9 h-9 rounded-lg bg-olive-100 border border-olive-200 flex items-center justify-center text-olive-800">
-                <UserCheck className="w-5 h-5" />
+                <Users className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-ink">
-                Soldier Personas
+                Player Accounts
               </h3>
               <p className="text-sm text-ink-muted leading-relaxed">
-                Create and manage up to four unique soldier personas per account. Enlist multiple callsigns for different clans, roles, or tournaments without needing separate master accounts.
+                Register a mohPA account on the player portal before you play. Use your account credentials at the game’s Multiplayer login screen; installing the patch does not sign you in automatically.
               </p>
             </div>
             <div className="pt-6 mt-6 border-t border-sand-200 font-mono text-xs text-ink-faint">
-              Account Limit: 4 Active Personas per soldier
+              A mohPA account is a setup prerequisite.
             </div>
           </div>
 
@@ -59,17 +59,17 @@ export const FeaturesGrid: React.FC = () => {
           <div className="md:col-span-5 bg-sand-100 border border-sand-200 rounded-xl p-8 shadow-tactical flex flex-col justify-between">
             <div className="space-y-3">
               <div className="w-9 h-9 rounded-lg bg-olive-100 border border-olive-200 flex items-center justify-center text-olive-800">
-                <ShieldCheck className="w-5 h-5" />
+                <FolderArchive className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-ink">
-                Safe, Reversible Patching
+                Community Client Patch
               </h3>
               <p className="text-sm text-ink-muted leading-relaxed">
-                The lightweight 17 KB patcher automatically creates a backup (<code className="text-xs bg-sand-200 px-1 py-0.5 rounded font-mono">mohpa.exe.bak</code>) before applying compatibility fixes (SSL 2.0 bypass and ISP port remapping). Revert anytime with a single click on <code className="text-xs bg-sand-200 px-1 py-0.5 rounded font-mono">Restore-Original.bat</code>.
+                Download the complete archive and read the current setup guide before installing. The patch works with your existing stock v1.2 game installation; it does not supply the game or replace the official v1.2 update.
               </p>
             </div>
             <div className="pt-6 mt-6 border-t border-sand-200 font-mono text-xs text-olive-700 font-medium">
-              Integrity: 100% reversible · Zero binary bloat
+              Keep a backup of your original installation.
             </div>
           </div>
 
@@ -77,17 +77,17 @@ export const FeaturesGrid: React.FC = () => {
           <div className="md:col-span-7 bg-sand-100 border border-sand-200 rounded-xl p-8 shadow-tactical flex flex-col justify-between">
             <div className="space-y-3">
               <div className="w-9 h-9 rounded-lg bg-olive-100 border border-olive-200 flex items-center justify-center text-olive-800">
-                <Activity className="w-5 h-5" />
+                <Radio className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-ink">
-                Dedicated Community Infrastructure
+                Community Server Hosting
               </h3>
               <p className="text-sm text-ink-muted leading-relaxed max-w-xl">
-                The master server operates on a high-availability European VPS node with low-latency peering across Europe, North America, and Asia. Game servers run at authentic tickrates with UDP optimization to preserve original weapon ballistics and soldier movement physics.
+                Community hosts provide the game servers players join. If you want to run a server, start with the dedicated server guide on the portal and check its current requirements before choosing a host or configuring your machine.
               </p>
             </div>
             <div className="pt-6 mt-6 border-t border-sand-200 font-mono text-xs text-ink-faint">
-              Infrastructure: 178.105.150.25 (Master) + Distributed Dedicated Hosts
+              Hosting documentation is available on the player portal.
             </div>
           </div>
 

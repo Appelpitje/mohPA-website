@@ -17,10 +17,10 @@ export const App: React.FC = () => {
       <Navbar portalUrl={portalUrl} />
       <main className="flex-1">
         <Hero portalUrl={portalUrl} />
-        <RevivalStory />
         <DeploymentGuide portalUrl={portalUrl} />
         <ServerShowcase portalUrl={portalUrl} />
         <FeaturesGrid />
+        <RevivalStory />
         <FaqSection />
       </main>
       <Footer portalUrl={portalUrl} />

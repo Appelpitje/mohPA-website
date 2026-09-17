@@ -1,41 +1,41 @@
 import React from 'react';
-import { Download, ArrowRight, CheckCircle2, ShieldCheck, Check } from 'lucide-react';
+import { Download, ArrowRight, BookOpen, Gamepad2, Users } from 'lucide-react';
 
 interface HeroProps {
   portalUrl?: string;
 }
 
 export const Hero: React.FC<HeroProps> = ({ portalUrl = 'https://portal.mohpa.net' }) => {
-  const verifiedFeatures = [
+  const features = [
     {
-      title: 'In-Game Account Login',
-      status: 'Works natively',
-      description: 'Authenticates your soldier account directly inside the 2004 game client.',
+      title: 'In-Game Login',
+      category: 'Account',
+      description: 'Use your mohPA account on the game’s Multiplayer login screen.',
     },
     {
-      title: 'Live Server Browser',
-      status: 'Works in-engine',
-      description: 'Browse, filter, and ping active servers without leaving the game.',
+      title: 'Internet Server Browser',
+      category: 'Discover',
+      description: 'Find community servers from inside Medal of Honor: Pacific Assault.',
     },
     {
-      title: 'Matchmaking & Lobbies',
-      status: 'Fully restored',
-      description: 'Lobby matchmaking, team selection, and map rotations work seamlessly.',
+      title: 'Community Multiplayer',
+      category: 'Play',
+      description: 'Join other players on community-run game servers.',
     },
     {
-      title: 'Soldier Personas',
-      status: 'Active',
-      description: 'Enlist and customize up to 4 distinct soldier personas on your account.',
+      title: 'Player Portal',
+      category: 'Community',
+      description: 'Create your account and find player resources on the mohPA portal.',
     },
     {
-      title: 'Dedicated Server Hosting',
-      status: 'Operational',
-      description: 'Host and join low-ping community dedicated servers on Linux & Windows.',
+      title: 'Client Setup Guide',
+      category: 'Prepare',
+      description: 'Check prerequisites and current setup instructions before installing.',
     },
     {
-      title: 'Direct Connect',
-      status: 'Supported',
-      description: 'Join via console IP or standard LAN with no virtual network drivers.',
+      title: 'Server Hosting Guide',
+      category: 'Hosting',
+      description: 'Read the portal’s dedicated server guide if you want to host a game.',
     },
   ];
 
@@ -56,14 +56,13 @@ export const Hero: React.FC<HeroProps> = ({ portalUrl = 'https://portal.mohpa.ne
           {/* Main Editorial Pitch */}
           <div className="lg:col-span-7 space-y-7">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-ink leading-[1.1]">
-              Pacific multiplayer is live again.
+              Play Medal of Honor: Pacific Assault multiplayer again
             </h1>
 
             <p className="text-lg sm:text-xl text-ink-muted leading-relaxed max-w-2xl">
-              Electronic Arts retired the official master server a decade ago. 
-              <strong className="text-ink font-semibold"> mohPA</strong> restores authentic multiplayer for 
-              Medal of Honor: Pacific Assault (2004)—featuring in-engine matchmaking, dedicated community servers, 
-              and persistent soldier personas.
+              <strong className="text-ink font-semibold">mohPA</strong> is a community multiplayer project for
+              Medal of Honor: Pacific Assault. Start with a stock game installation updated to v1.2,
+              create a mohPA account, and follow the setup guide to use the community client patch.
             </p>
 
             {/* Direct Action Row */}
@@ -76,7 +75,7 @@ export const Hero: React.FC<HeroProps> = ({ portalUrl = 'https://portal.mohpa.ne
                 <Download className="w-5 h-5 text-sand-100" />
                 <span>Download Client Patch</span>
                 <span className="text-xs bg-stamp-700/70 text-sand-200 px-2 py-0.5 rounded font-mono font-normal">
-                  v1.2 · 17 KB
+                  Community ZIP
                 </span>
               </a>
 
@@ -91,47 +90,47 @@ export const Hero: React.FC<HeroProps> = ({ portalUrl = 'https://portal.mohpa.ne
               </a>
             </div>
 
-            {/* Reassurance & Verification Proofs */}
+            {/* Setup essentials */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-medium text-ink-muted">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-olive-600 shrink-0" />
-                <span>Safe &amp; reversible patch</span>
+                <Gamepad2 className="w-4 h-4 text-olive-600 shrink-0" />
+                <span>Requires game v1.2</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-olive-600 shrink-0" />
-                <span>Works in-game natively</span>
+                <Users className="w-4 h-4 text-olive-600 shrink-0" />
+                <span>mohPA account required</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-olive-600 shrink-0" />
-                <span>Free &amp; community driven</span>
+                <BookOpen className="w-4 h-4 text-olive-600 shrink-0" />
+                <a href={`${portalUrl}/setup`} className="underline underline-offset-2 hover:text-ink">Read the setup guide</a>
               </div>
             </div>
           </div>
 
-          {/* Right Side: What Works Again (Player-Facing Operational Status) */}
+          {/* Right Side: Multiplayer features and resources */}
           <div className="lg:col-span-5">
             <div className="bg-sand-50 border border-sand-300 rounded-xl p-6 shadow-tactical space-y-4">
               
               {/* Card Header */}
               <div className="flex items-center justify-between border-b border-sand-200 pb-3.5">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-olive-500 animate-pulse" />
+                  <Gamepad2 className="w-4 h-4 text-olive-700" />
                   <span className="font-mono text-xs font-semibold text-ink uppercase tracking-wider">
-                    Multiplayer Revival Status
+                    Multiplayer Features
                   </span>
                 </div>
                 <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-olive-100 text-olive-800 border border-olive-200 font-medium">
-                  ALL SYSTEMS ONLINE
+                  COMMUNITY PROJECT
                 </span>
               </div>
 
-              {/* What Works List */}
+              {/* Feature List */}
               <div className="divide-y divide-sand-200/80">
-                {verifiedFeatures.map((feat, idx) => (
+                {features.map((feat, idx) => (
                   <div key={idx} className="py-2.5 first:pt-1 last:pb-1 flex items-start justify-between gap-3">
                     <div className="space-y-0.5">
                       <div className="text-xs font-bold text-ink flex items-center gap-1.5">
-                        <Check className="w-3.5 h-3.5 text-olive-700 shrink-0 stroke-[2.5]" />
+                        <ArrowRight className="w-3.5 h-3.5 text-olive-700 shrink-0 stroke-[2.5]" />
                         <span>{feat.title}</span>
                       </div>
                       <p className="text-[11px] text-ink-muted pl-5 leading-relaxed">
@@ -139,18 +138,18 @@ export const Hero: React.FC<HeroProps> = ({ portalUrl = 'https://portal.mohpa.ne
                       </p>
                     </div>
                     <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-olive-50 text-olive-800 border border-olive-200 shrink-0 font-medium self-start mt-0.5">
-                      {feat.status}
+                      {feat.category}
                     </span>
                   </div>
                 ))}
               </div>
 
-              {/* Player-Friendly Reassurance Note */}
+              {/* Setup reminder */}
               <div className="p-3 bg-olive-50 border border-olive-200 rounded-lg text-xs leading-relaxed text-olive-900">
                 <p className="font-semibold text-olive-950 mb-0.5">
-                  No third-party VPN software needed
+                  Read the guide before installing
                 </p>
-                Forget Hamachi, Tunngle, or manual console commands. Extract the patch once, launch MOHPA, and play multiplayer natively just like in 2004.
+                Download the full community patch archive, not an individual file. Check the current setup guide for installation and network configuration, then sign in with your mohPA account in-game.
               </div>
 
             </div>
