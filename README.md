@@ -35,14 +35,25 @@ npm run preview
 
 ## Deployment
 
-Deploy to **Cloudflare Pages**:
+Deploy this repository with **Cloudflare Workers Builds**, not Pages:
 
-- **Git integration**: Set the root directory to `marketing`, build command to `npm run build`, and output directory to `dist`.
-- **Wrangler**: Run `npx wrangler pages deploy dist` from `marketing` after building so the adjacent `functions/` directory is included.
+- **Root directory**: `/` (this repository is the marketing site).
+- **Production branch**: `main`.
+- **Build command**: `npm run build`.
+- **Deploy command**: `npx wrangler deploy`.
+- **Non-production version command**: `npx wrangler versions upload`.
 
-Attach both `mohpa.net` and `www.mohpa.net` as Pages custom domains. `functions/_middleware.js` issues canonical **308 redirects** for HTTP, `www`, and `/index.html` on those domains, and preserves Pages' real **404** response for unknown paths rather than rewriting them to the homepage.
+`wrangler.jsonc` deploys `worker.js` and the built `dist/` assets through the `ASSETS` binding. The default Worker name is `mohpa-website`; it must match the existing Workers Builds project name. No zone-wide routes are configured here.
 
-A plain static drag-and-drop upload does **not** deploy `functions/_middleware.js`, so it does not include those middleware redirects. Use Git integration or Wrangler for the complete deployment.
+Attach both `mohpa.net` and `www.mohpa.net` as **Worker custom domains**. The Worker runs before every asset request and issues canonical **308 redirects** only on these two hosts when the request is HTTP, uses `www`, or targets `/index.html`. Redirects preserve the path and query string, with `/index.html` mapped to `/`. Preview URLs, localhost, and unrelated hosts are not redirected. Automatic asset HTML redirects are disabled; `/` internally serves `index.html` without redirecting.
+
+The asset binding serves unknown paths using `dist/404.html` with a real **404** status, never a SPA homepage fallback. Successful fingerprinted `/_assets/` responses (including conditional 304 responses) receive `Cache-Control: public, max-age=31536000, immutable`; other assets retain normal caching.
+
+Do **not** enable zone-wide HTTPS redirects or add a wildcard Worker route: the legacy game backend must remain untouched. Custom domains direct all requests on the attached hostname to this Worker; keep any legacy paths requiring a separate origin outside that attachment/routing scope.
+
+For local verification without deploying, run `npm run build`, then `npx wrangler deploy --dry-run` and `npx wrangler dev --local`. The dev server exercises the Worker and built assets, unlike Vite's development server.
+
+`functions/_middleware.js` remains as the equivalent implementation for optional Pages deployments; Workers Builds does not execute it. `public/_headers` remains compatible with Pages and is also supported by current Workers static assets. The Worker explicitly sets immutable caching on successful fingerprinted asset responses rather than relying on `_headers` for Worker-generated responses.
 
 ### Environment Variables
 
