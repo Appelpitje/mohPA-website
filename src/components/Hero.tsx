@@ -43,9 +43,9 @@ export const Hero: React.FC<HeroProps> = ({ portalUrl = 'https://portal.mohpa.ne
     <section className="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-sand-200">
       {/* Subtle paper grain / canvas atmosphere */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply"
+        className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply dark:mix-blend-screen dark:opacity-30"
         style={{
-          backgroundImage: 'radial-gradient(#d4ccb8 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(var(--hero-grid-dot, #d4ccb8) 1px, transparent 1px)',
           backgroundSize: '24px 24px'
         }}
       />
@@ -70,11 +70,11 @@ export const Hero: React.FC<HeroProps> = ({ portalUrl = 'https://portal.mohpa.ne
               <a
                 href="/downloads/mohPA-Client-Patch.zip"
                 download="mohPA-Client-Patch.zip"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-stamp-500 hover:bg-stamp-600 active:bg-stamp-700 text-sand-50 font-semibold text-base transition-all shadow-stamp-action border border-stamp-700 focus-visible:ring-2 focus-visible:ring-stamp-500"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-stamp-500 hover:bg-stamp-600 active:bg-stamp-700 text-white font-semibold text-base transition-all shadow-stamp-action border border-stamp-700 focus-visible:ring-2 focus-visible:ring-stamp-500"
               >
-                <Download className="w-5 h-5 text-sand-100" />
+                <Download className="w-5 h-5 text-white/90" />
                 <span>Download Client Patch</span>
-                <span className="text-xs bg-stamp-700/70 text-sand-200 px-2 py-0.5 rounded font-mono font-normal">
+                <span className="text-xs bg-stamp-700/70 text-white/90 px-2 py-0.5 rounded font-mono font-normal">
                   Community ZIP
                 </span>
               </a>

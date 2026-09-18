@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, ExternalLink, Github } from 'lucide-react';
+import { ThemeToggle } from './ThemeToggle';
 
 interface NavbarProps {
   portalUrl?: string;
@@ -61,6 +62,8 @@ export const Navbar: React.FC<NavbarProps> = ({ portalUrl = 'https://portal.mohp
             <span>Community Master Server</span>
           </div>
 
+          <ThemeToggle />
+
           <a
             href="https://github.com/Appelpitje/mohPA-website"
             target="_blank"
@@ -75,7 +78,7 @@ export const Navbar: React.FC<NavbarProps> = ({ portalUrl = 'https://portal.mohp
             href={portalUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-olive-800 text-sand-50 hover:bg-olive-900 border border-olive-900 text-sm font-medium transition-all shadow-sm focus-visible:ring-2 focus-visible:ring-olive-600 focus-visible:ring-offset-2"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-olive-800 text-white hover:bg-olive-900 border border-olive-900 text-sm font-medium transition-all shadow-sm focus-visible:ring-2 focus-visible:ring-olive-600 focus-visible:ring-offset-2"
           >
             <span>Player Portal</span>
             <ExternalLink className="w-3.5 h-3.5 text-olive-300" />
@@ -84,11 +87,12 @@ export const Navbar: React.FC<NavbarProps> = ({ portalUrl = 'https://portal.mohp
 
         {/* Mobile menu trigger */}
         <div className="flex md:hidden items-center gap-2">
+          <ThemeToggle />
           <a
             href={portalUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-olive-800 text-sand-50 text-xs font-medium"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-olive-800 text-white text-xs font-medium"
           >
             <span>Portal</span>
             <ExternalLink className="w-3 h-3 text-olive-300" />
@@ -156,6 +160,10 @@ export const Navbar: React.FC<NavbarProps> = ({ portalUrl = 'https://portal.mohp
               <Github className="w-4 h-4" />
               <span>GitHub</span>
             </a>
+            <div className="pt-2 border-t border-sand-200 flex items-center justify-between px-2">
+              <span className="text-sm font-medium text-ink-muted">Theme</span>
+              <ThemeToggle showLabel={true} />
+            </div>
           </div>
         </nav>
     </header>

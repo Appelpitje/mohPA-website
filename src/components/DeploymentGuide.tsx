@@ -132,9 +132,9 @@ export const DeploymentGuide: React.FC<DeploymentGuideProps> = ({ portalUrl = 'h
           <a
             href="/downloads/mohPA-Client-Patch.zip"
             download="mohPA-Client-Patch.zip"
-            className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-stamp-500 hover:bg-stamp-600 active:bg-stamp-700 text-sand-50 font-semibold text-sm transition-all shadow-stamp-action border border-stamp-700 shrink-0"
+            className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-stamp-500 hover:bg-stamp-600 active:bg-stamp-700 text-white font-semibold text-sm transition-all shadow-stamp-action border border-stamp-700 shrink-0"
           >
-            <Download className="w-4 h-4 text-sand-100" />
+            <Download className="w-4 h-4 text-white/90" />
             <span>Download Client Patch</span>
           </a>
         </div>

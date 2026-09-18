@@ -204,7 +204,7 @@ export const ServerShowcase: React.FC<ServerShowcaseProps> = ({ portalUrl = 'htt
                 {servers.length > 0 ? (
                   <button
                     onClick={() => setFilterMode('all')}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-olive-800 text-sand-50 hover:bg-olive-900 text-xs font-semibold transition-colors"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-olive-800 text-white hover:bg-olive-900 text-xs font-semibold transition-colors"
                   >
                     Show All Servers
                   </button>
@@ -213,7 +213,7 @@ export const ServerShowcase: React.FC<ServerShowcaseProps> = ({ portalUrl = 'htt
                     href={`${portalUrl}/setup?tab=dedicated`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-olive-800 text-sand-50 hover:bg-olive-900 text-xs font-semibold transition-colors"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-olive-800 text-white hover:bg-olive-900 text-xs font-semibold transition-colors"
                   >
                     <span>Dedicated Server Hosting Guide</span>
                     <ExternalLink className="w-3.5 h-3.5 text-olive-300" />
@@ -326,7 +326,7 @@ export const ServerShowcase: React.FC<ServerShowcaseProps> = ({ portalUrl = 'htt
             href={`${portalUrl}/setup?tab=dedicated`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-olive-800 hover:bg-olive-900 text-sand-50 text-xs font-semibold transition-colors shrink-0"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-olive-800 hover:bg-olive-900 text-white text-xs font-semibold transition-colors shrink-0"
           >
             <span>Server Admin Guide</span>
             <ExternalLink className="w-3.5 h-3.5 text-olive-300" />

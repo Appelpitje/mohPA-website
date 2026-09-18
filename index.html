@@ -9,7 +9,28 @@
       name="description"
       content="Play Medal of Honor: Pacific Assault multiplayer again with mohPA. Get the community patch for game v1.2, follow the setup guide, and find live servers."
     />
-    <meta name="theme-color" content="#1e2416" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f4f0e6" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('mohpa-theme') || localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var isDark = stored ? stored === 'dark' : prefersDark;
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.style.colorScheme = 'dark';
+            var metaTheme = document.querySelector('meta[name="theme-color"]');
+            if (metaTheme) metaTheme.setAttribute('content', '#121511');
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.style.colorScheme = 'light';
+            var metaTheme = document.querySelector('meta[name="theme-color"]');
+            if (metaTheme) metaTheme.setAttribute('content', '#f4f0e6');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <link rel="canonical" href="https://mohpa.net/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="mohPA" />
